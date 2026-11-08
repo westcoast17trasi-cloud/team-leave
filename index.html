@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Leave</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Team Leave">
+<style>
+html,body{margin:0;height:100%;background:#f6f7f9}
+iframe{border:0;width:100%;height:100%;display:block}
+#s{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  font:22px Arial,sans-serif;color:#5b6570;background:#f6f7f9;text-align:center;padding:20px}
+#s img{width:96px;height:96px;border-radius:20px}
+</style></head><body>
+<div id="s"><img src="icon-192.png" alt=""><div id="t">Loading…</div></div>
+<iframe id="f" title="Team Leave" allow="geolocation"></iframe>
+<script>
+// >>> PASTE YOUR GOOGLE WEB APP LINK BETWEEN THE QUOTES (it ends with /exec) <<<
+const APP_URL = "PASTE_YOUR_WEB_APP_LINK_HERE";
+const f = document.getElementById("f"), s = document.getElementById("s"), t = document.getElementById("t");
+if (!/^https:\/\//.test(APP_URL)) { t.textContent = "Setup needed: put the web app link inside index.html"; }
+else if (!navigator.onLine) { t.textContent = "No internet. Please connect and open the app again."; }
+else {
+  f.src = APP_URL;
+  f.onload = () => { s.style.display = "none"; };
+  setTimeout(() => { if (s.style.display !== "none") t.textContent = "Taking long… please check your internet."; }, 15000);
+}
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+</script></body></html>
