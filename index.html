@@ -18,7 +18,7 @@ iframe{border:0;width:100%;height:100%;display:block}
 <iframe id="f" title="Team Leave" allow="geolocation"></iframe>
 <script>
 // >>> PASTE YOUR GOOGLE WEB APP LINK BETWEEN THE QUOTES (it ends with /exec) <<<
-const APP_URL = "PASTE_YOUR_WEB_APP_LINK_HERE";
+const APP_URL = "https://script.google.com/macros/s/AKfycbw3fJnwvnWFGIweeK7ScPKsFKQDvIpOG6iIo_wZWTvUGUHeot-w1JVtpm-XWDqZHDZZng/exec";
 const f = document.getElementById("f"), s = document.getElementById("s"), t = document.getElementById("t");
 if (!/^https:\/\//.test(APP_URL)) { t.textContent = "Setup needed: put the web app link inside index.html"; }
 else if (!navigator.onLine) { t.textContent = "No internet. Please connect and open the app again."; }
